@@ -42,7 +42,7 @@
 
 ## Prerequisites
 
-* [cloudflared CLI](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/)
+* [cloudflared CLI](https://github.com/cloudflare/cloudflared)
 * `jq` (JSON processor)
 * Bash 4+
 
@@ -75,5 +75,5 @@ docker compose up -d cloudflared  # Start cloudflared container with the newly c
 Contributions are welcome! Please open issues and pull requests.
 
 ## Copyright
-
+ Based on the work of [Tobias Brenner](https://github.com/brenner-tobias/addon-cloudflared/)
 © Sérgio Baião
