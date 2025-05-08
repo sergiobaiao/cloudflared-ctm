@@ -1,0 +1,38 @@
+services:
+  cloudflared:
+    container_name: cloudflared
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    #network_mode: host
+    privileged: true
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    sysctls:
+      # allow all GIDs to use raw ICMP sockets
+      net.ipv4.ping_group_range: "0 2147483647"      
+    command: tunnel --no-autoupdate --metrics=0.0.0.0:36500 --origincert=/data/cert.pem --config=/data/config.json run ${TUNNEL_NAME}
+    volumes:
+      - ./config/cloudflare:/data
+    healthcheck:
+      test: ["CMD", "cloudflared", "version"]
+      interval: 60s
+      timeout: 20s
+      retries: 5
+      start_period: 10s
+  # homeassistant:
+    # container_name: homeassistant
+    # hostname: homeassistant
+    # image: homeassistant/home-assistant:stable
+    # volumes:
+      # - ./hass:/config
+      # - /etc/localtime:/etc/localtime:ro
+    # devices:
+      # - /dev/ttyACM0:/dev/ttyACM0
+    # environment:
+      # - TZ=America/Fortaleza
+    # restart: unless-stopped
+    # network_mode: host
+    # logging:
+      # options:
+        # max-size: 50m
