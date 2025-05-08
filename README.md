@@ -1,7 +1,9 @@
 # CTM — Cloudflare Tunnel Manager
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  [![GitHub Release](https://img.shields.io/github/v/release/sergiobaiao/cloudflared-ctm)](https://github.com/sergiobaiao/cloudflared-ctm/releases)
-
+<p align="center">
+  <img src="ctm.svg" alt="CTM Logo" width="200"/>
+</p>
 ```bash
 ################################################################################
 #                                                                              #
